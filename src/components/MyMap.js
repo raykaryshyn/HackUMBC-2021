@@ -42,9 +42,6 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 function MyMap() {
     return (
         <div className="Map">
-            {
-                /*data && data.length > 0 && data.map((item) => <p>item</p>)*/
-            }
             <WrappedMap googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyC3RDeRum5X-MLlcKX8_Z5c2RWtPNdxUY4`}
                 loadingElement={<div style={{ height: `100%` }} />}
                 containerElement={<div style={{ height: `100%` }} />}

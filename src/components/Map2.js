@@ -48,6 +48,11 @@ const MapWithAMarkerClusterer = compose(
 );
 
 class Map2 extends React.PureComponent {
+    constructor(props) {
+        super();
+        console.log(props.organFilter);
+    }
+
     componentWillMount() {
         this.setState({ markers: [] })
     }

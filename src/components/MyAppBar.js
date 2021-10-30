@@ -11,7 +11,7 @@ export default function MyAppBar() {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
-                <Toolbar>
+                <Toolbar style={{ height: "60px" }}>
                     <IconButton
                         size="large"
                         edge="start"

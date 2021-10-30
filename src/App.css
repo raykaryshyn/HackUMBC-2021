@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.Map {
+  width: 100%;
+  height: calc(100vh - 65px);
+}

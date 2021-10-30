@@ -12,12 +12,12 @@ function Map() {
         }
         )
             .then(function (response) {
-                console.log(response)
+                //console.log(response)
                 return response.json();
             })
             .then(function (myJson) {
-                console.log(myJson);
-                setData(myJson)
+                //console.log(myJson);
+                setData(myJson);
             });
     }
 
@@ -41,7 +41,7 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 function MyMap() {
     return (
-        <div className="App" style={{ width: '100vw', height: '100vh' }}>
+        <div className="Map">
             {
                 /*data && data.length > 0 && data.map((item) => <p>item</p>)*/
             }

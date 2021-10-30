@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const fetch = require("isomorphic-fetch");
 const { compose, withProps, withHandlers } = require("recompose");
@@ -47,26 +47,49 @@ const MapWithAMarkerClusterer = compose(
     </GoogleMap>
 );
 
-class Map2 extends React.PureComponent {
+class Map2 extends React.Component {
     constructor(props) {
-        super();
-        console.log(props);
-        this.setState({
+        super(props);
+        console.log(props.dummy);
+        this.state = {
+            /* markers: props.markers */
             organFilter: props.organFilter
-        });
+        };
     }
 
-    componentWillMount() {
-        this.setState({ markers: [] })
+    shouldComponentUpdate(nextProps) {
+        return this.props.organFilter !== nextProps.organFilter;
     }
 
-    componentDidMount() {
-        
+    /*  componentWillMount() {
+         this.setState({   organFilter: { heart: true, kidney: true, liver: true, pancreas: true, lung: true, vca: true, intestine: true, islet: true } })
+     } */
+
+    componentDidMount(props) {
+        console.log("loading data...")
+        const url = [
+            `data.json`
+        ].join("")
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                this.setState({ markers: data });
+            });
+    }
+
+    componentDidUpdate(props) {
+        console.log("did update?", props);
+        this.setState({ /* markers: [] */  organFilter: props.organFilter })
     }
 
     render() {
+        console.log("am i?", this.state.organFilter);
         return (
-            <MapWithAMarkerClusterer markers={this.state.markers} />
+            <>
+                {/* <MapWithAMarkerClusterer markers={this.state.markers} /> */}
+                {this.state.organFilter.heart}
+            </>
         )
     }
 }

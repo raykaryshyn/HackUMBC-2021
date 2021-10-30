@@ -1,12 +1,12 @@
 import './App.css';
 /* import MyAppBar from './components/MyAppBar'; */
-import MyMenu from './components/MyMenu';
+import Scratch from './components/Scratch';
 
 function App() {
   return (
     <div className="App">
       {/* <MyAppBar /> */}
-      <MyMenu />
+      <Scratch />
     </div>
   );
 }

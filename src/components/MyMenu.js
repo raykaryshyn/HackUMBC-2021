@@ -20,14 +20,22 @@ function MyMenu(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [organFilter, setOrganFilter] = React.useState({ heart: true, kidney: true, liver: true, pancreas: true, lung: true, vca: true, intestine: true, islet: true });
-    const [markers, setMarkers] = React.useState({});
+    /* const [markers, setMarkers] = React.useState([]); */
+    const [dummy, setDummy] = React.useState(0);
+
+    /* React.useEffect(function effectFunction() {
+        fetch("data_list_for_filter.json")
+            .then(res => res.json())
+            .then(data => {
+                setMarkers(data);
+            });
+    }, []); */
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
     const handleOrganFilter = (organ) => {
-        /* console.log(organFilter[organ]); */
         setOrganFilter(prevState => ({
             ...prevState,
             [organ]: !prevState[organ]
@@ -54,16 +62,8 @@ function MyMenu(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     React.useEffect(() => {
-        const url = [
-            `data_list_for_filter.json`
-        ].join("")
-
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                const filteredData = filterData(data, organFilter);
-                setMarkers(filteredData);
-            });
+        console.log(dummy);
+        setDummy(prevState => prevState + 1);
     }, [organFilter]);
 
     return (
@@ -128,7 +128,9 @@ function MyMenu(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                <Map2 organFilter={organFilter} />
+                {/* {markers.length > 0 && markers[0].Longitude} */}
+                {/* <Map2 organFilter={organFilter} /> */}
+                {dummy}
             </Box>
         </Box>
     );
@@ -137,8 +139,20 @@ function MyMenu(props) {
 
 
 function filterData(data, filter) {
-    console.log(data, filter);
     return data;
+}
+
+
+function getData(organFilter) {
+    let filteredData = []
+
+    fetch("data_list_for_filter.json")
+        .then(res => res.json())
+        .then(data => {
+            filteredData = filterData(data, organFilter);
+        });
+
+    return filteredData;
 }
 
 export default MyMenu;

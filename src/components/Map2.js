@@ -54,7 +54,7 @@ class Map2 extends React.PureComponent {
 
     componentDidMount() {
         const url = [
-            `data.json`
+            `data_list_for_filter.json`
         ].join("")
 
         fetch(url)

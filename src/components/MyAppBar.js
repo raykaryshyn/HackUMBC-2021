@@ -22,9 +22,9 @@ export default function MyAppBar() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        News
+                        Organ Transplant Finder
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    <Button color="inherit" disabled={true}></Button>
                 </Toolbar>
             </AppBar>
         </Box>

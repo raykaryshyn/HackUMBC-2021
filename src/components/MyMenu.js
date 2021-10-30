@@ -20,6 +20,7 @@ function MyMenu(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [organFilter, setOrganFilter] = React.useState({ heart: true, kidney: true, liver: true, pancreas: true, lung: true, vca: true, intestine: true, islet: true });
+    const [markers, setMarkers] = React.useState({});
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -51,6 +52,19 @@ function MyMenu(props) {
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
+
+    React.useEffect(() => {
+        const url = [
+            `data_list_for_filter.json`
+        ].join("")
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                const filteredData = filterData(data, organFilter);
+                setMarkers(filteredData);
+            });
+    }, [organFilter]);
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -118,6 +132,13 @@ function MyMenu(props) {
             </Box>
         </Box>
     );
+}
+
+
+
+function filterData(data, filter) {
+    console.log(data, filter);
+    return data;
 }
 
 export default MyMenu;

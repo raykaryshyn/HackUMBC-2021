@@ -50,7 +50,10 @@ const MapWithAMarkerClusterer = compose(
 class Map2 extends React.PureComponent {
     constructor(props) {
         super();
-        console.log(props.organFilter);
+        console.log(props);
+        this.setState({
+            organFilter: props.organFilter
+        });
     }
 
     componentWillMount() {
@@ -58,15 +61,7 @@ class Map2 extends React.PureComponent {
     }
 
     componentDidMount() {
-        const url = [
-            `data_list_for_filter.json`
-        ].join("")
-
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                this.setState({ markers: data });
-            });
+        
     }
 
     render() {

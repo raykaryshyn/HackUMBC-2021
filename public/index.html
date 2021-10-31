@@ -22,18 +22,22 @@
   <div id="popup-container"
     style="background-color: rgba(0,0,0,0.5); width: 100vw; position:absolute; top:0; left:0; height: 100vh; z-index: 99999; backdrop-filter: blur(2px); display: none;">
     <div id="popup"
-      style="position:absolute; top:50%; left:50%; transform: translateX(-50%) translateY(-50%);background-color: rgba(225,225,225,1);  border-radius: 10px; padding: 10px 15px; box-shadow: 0 0 30px rgba(0,0,0,0.9); color: black; width: 500px; z-index: 999999;">
-      <button onclick="document.getElementById('popup-container').style.display = 'none'"
-        style="float: right;background: transparent; outline: none; box-shadow: none; border: none; padding: 0; cursor: pointer;"><span
-          class="material-icons">
-          close
-        </span></button>
-      <h1 id="popup-name" style="font-size: 1.5rem;"></h1>
-      <span id="popup-website"></span>
-      <p>Tel: <span id="popup-phone"></span></p>
-      <p>Address: <span id="popup-address"></span></p>
-      <p>ZIP: <span id="popup-zip"></span></p>
-      <div id="popup-filters"></div>
+      style="position:absolute; top:50%; left:50%; transform: translateX(-50%) translateY(-50%);background-color: rgba(225,225,225,1);  border-radius: 10px; padding: 10px 15px; box-shadow: 0 0 30px rgba(0,0,0,0.9); color: black; width: 550px; z-index: 999999; display: flex; flex-direction: column; text-align: center;">
+      <div><button onclick="document.getElementById('popup-container').style.display = 'none'"
+          style="float: right;background: transparent; outline: none; box-shadow: none; border: none; padding: 0; cursor: pointer;">
+          <span class="material-icons">
+            close
+          </span>
+        </button>
+      </div>
+      <h1 id="popup-name" style="font-size: 1.5rem; margin-bottom: 27px; line-height: 1.3; padding: 0 10px;"></h1>
+      <span id="popup-website" style="margin-bottom: 1px; padding: 0 10px;"></span>
+      <p style="margin-top: 1px;">Tel: <span id="popup-phone"></span></p>
+      <p style="margin-top: 5px; margin-bottom: 1px;">Address: <span id="popup-address"></span></p>
+      <p style="margin-top: 1px; margin-bottom: 30px;">ZIP: <span id="popup-zip"></span></p>
+      <div id="popup-filters"
+        style="display: flex; flex-direction: row; align-items: center; justify-content: center; flex-wrap: wrap;">
+      </div>
     </div>
   </div>
 </body>

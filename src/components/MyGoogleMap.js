@@ -110,7 +110,7 @@ const MapWithAMarkerClusterer = compose(
             document.getElementById("popup-address").innerHTML = [marker['Address.1'], marker['City.1']].join(', ');
             document.getElementById("popup-zip").innerHTML = marker['ZIP.1'];
             document.getElementById("popup-website").innerHTML = "<a href='" + marker['Organ Transplantation Center'] + "' target='_blank'>" + marker['Organ Transplantation Center'] + "</a>";
-            document.getElementById("popup-filters").innerHTML = "<div>" + marker['OTC Service List'].join("</div><div>") + "</div>";
+            document.getElementById("popup-filters").innerHTML = "<div class='filter-badge'>" + marker['OTC Service List'].join("</div><div class='filter-badge'>") + "</div>";
             document.getElementById("popup-container").style.display = "block";
             document.getElementById("popup-container").style.display = "block";
         },

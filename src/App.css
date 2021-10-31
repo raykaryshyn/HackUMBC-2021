@@ -2,3 +2,13 @@
   width: 100%;
   height: calc(100vh - 65px);
 }
+
+.filter-badge {
+  background: rgb(100, 100, 100);
+  color: white;
+  font-size: 0.85rem;
+  padding: 1px 10px;
+  margin: 3px 2px;
+  border-radius: 20px;
+  cursor: default;
+}

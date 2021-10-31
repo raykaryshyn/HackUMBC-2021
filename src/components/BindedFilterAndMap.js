@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import FormGroup from '@mui/material/FormGroup';
@@ -133,7 +134,6 @@ function BindedFilterAndMap(props) {
 
     const drawer = (
         <div>
-            <Toolbar />
             <Typography sx={{ fontStyle: "italic", fontWeight: 300, fontSize: "0.9rem", textAlign: 'left', paddingLeft: 1, paddingBottom: 1 }}>Organ Filters</Typography>
             <FormGroup sx={{ paddingLeft: 0.5 }}>
                 <FormControlLabel className={classes.label} control={<Checkbox checked={organFilter.heart} onChange={() => handleOrganFilter("heart")} />} label="Heart" />
@@ -194,6 +194,18 @@ function BindedFilterAndMap(props) {
                         '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                     }}
                 >
+                    <Toolbar>
+                        <Box sx={{ flexGrow: 1 }} />
+                        <IconButton
+                            color="inherit"
+                            aria-label="close drawer"
+                            edge="end"
+                            onClick={handleDrawerToggle}
+                            sx={{ display: { md: 'none' } }}
+                        >
+                            <CloseIcon />
+                        </IconButton>
+                    </Toolbar>
                     {drawer}
                 </Drawer>
                 <Drawer
@@ -204,6 +216,7 @@ function BindedFilterAndMap(props) {
                     }}
                     open
                 >
+                    <Toolbar />
                     {drawer}
                 </Drawer>
             </Box>

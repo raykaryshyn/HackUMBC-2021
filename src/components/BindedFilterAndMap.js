@@ -99,8 +99,6 @@ const filterData = (data, organFilter) => {
         }
     }
 
-    console.log("BINDED", usedIndexes, output);
-
     return output;
 };
 
@@ -110,14 +108,12 @@ function BindedFilterAndMap(props) {
     let [points, setPoints] = React.useState(null);
 
     const fetchData = (organFilter) => {
-        console.log("fetching data...", organFilter);
         const rawData = require('./data_list_for_filter.json');
         let data = filterData(rawData, organFilter);
         setPoints(data);
     }
 
     React.useEffect(() => {
-        console.log("changed filter")
         fetchData(organFilter);
     }, [organFilter]);
 

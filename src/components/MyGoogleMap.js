@@ -100,11 +100,10 @@ const MapWithAMarkerClusterer = compose(
     withHandlers({
         onMarkerClustererClick: () => (markerClusterer) => {
             const clickedMarkers = markerClusterer.getMarkers()
-            console.log(`Current clicked markers length: ${clickedMarkers.length}`)
-            console.log(clickedMarkers)
+            /* console.log(`Current clicked markers length: ${clickedMarkers.length}`)
+            console.log(clickedMarkers) */
         },
         onMarkerClick: () => (marker) => {
-            console.log(marker);
             document.getElementById("popup-name").innerHTML = marker['OTC Name'];
             document.getElementById("popup-phone").innerHTML = marker['OTC Telephone #'];
             document.getElementById("popup-address").innerHTML = [marker['Address.1'], marker['City.1']].join(', ');
@@ -161,11 +160,9 @@ class MyGoogleMap extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = { markers: props.points };
-        console.log("in constructor, ", props.points);
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
-        console.log('Component received new props', nextProps);
         this.setState({ markers: nextProps.points });
     }
 

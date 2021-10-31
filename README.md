@@ -12,13 +12,13 @@ We aim to assist recipients in their path to treatment by focusing our efforts o
 With our tool, patients can quickly find clinics by filtering what services are available. Moreover, to facilitate the user's experience, the tool also provides a quick overview of each institution's information.
 
 ## How we built it
-Our web app was built mainly with React.js. The core of the project is our map which we implemented using the Google Maps JavaScript API and populated it with data gathered from the Health and Services Administration
+Our web app was built mainly with React.js. The core of the project is our map which we implemented using the Google Maps JavaScript API and populated it with data gathered from the Health and Services Administration.
 
 ## Challenges we ran into
-At first, our team wanted to use the Deck.gl framework to layer over the map and provide other data visualization and functionalities to our users; however, due to the lack of time, we had to compromise and focus on the core features of our app.
+At first, our team wanted to use the Deck.gl framework to layer over the map and provide other data visualization functionalities to our users; however, due to the lack of time, we had to compromise and focus on the core components of our app.
 
 ## Accomplishments that we're proud of
-We are proud to create a project that positively impacts our community. In addition, we are proud of using Jupyter Notebooks to convert our raw data from an excel file to clean and organized JSON files so we could utilize it with the map. Moreover, we are also proud of thinking objectively under pressure and focusing on the main features of our project when we ran into an obstacle to make sure we still had a great app. Finally, we are also proud of submitting this project as it is the very first hackathon that any of our team members have ever participated in.
+We are proud to create a project that positively impacts our community. In addition, we are proud of using Jupyter Notebooks to convert our raw data from an excel file to clean and organized JSON files so we could utilize it with the map. Moreover, we are also proud of thinking objectively under pressure and focusing on the main features of our project when we ran into an obstacle to make sure we still had a great app. Finally, we are proud of submitting this project as it is the very first hackathon that any of our team members have ever participated in.
 
 ## What we learned
-As first-time hackers, we learned more about working under pressure and cooperating to create a great demo project. Our team members also had the opportunity to learn usages of the systems we've used to build our project, as none of our team members had extensive experience with either the React library or the Google Maps JavaScript API.
+As first-time hackers, we learned more about working under pressure and cooperating to create a great demo project. Our team members also had the opportunity to learn usages of the systems we used to build our project, as none of our team members had extensive experience with either the React library or the Google Maps JavaScript API.

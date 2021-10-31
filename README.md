@@ -6,7 +6,7 @@
 According to the American Transplant Foundation, around 107,000 people in the US are currently in need of a lifesaving organ transplant. These recipients are selected based on location, medical need, and compatibility.
 
 ## Goal
-As we aim to assist recipients in their path to treatment, we focused on connecting patients to Organ Transplant Centers.
+We aim to assist recipients in their path to treatment by focusing our efforts on connecting patients to the nearest Organ Transplant Centers.
 
 ## What it does
 With our tool, patients can quickly find clinics by filtering what services are available. Moreover, to facilitate the user's experience, the tool also provides a quick overview of each institution's information.

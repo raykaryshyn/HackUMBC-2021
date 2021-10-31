@@ -3,7 +3,8 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 /* import withFetch from './withFetch';
-import MyMap from './MyMap'; */
+ */
+import Map2 from './Map2';
 
 /* const MyMapWithFetch = withFetch(
     MyMap,
@@ -114,7 +115,7 @@ const Scratch = (props) => {
                 <FormControlLabel control={<Checkbox checked={organFilter.islet} onChange={() => handleOrganFilter("islet")} />} label="Pancreas Islet" />
             </FormGroup>
 
-            <h1>{points != null && points[0].Latitude}</h1>
+            {points != null && <Map2 points={points} />}
         </>
     )
 }

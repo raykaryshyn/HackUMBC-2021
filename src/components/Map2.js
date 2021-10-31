@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 const fetch = require("isomorphic-fetch");
 const { compose, withProps, withHandlers } = require("recompose");
@@ -14,7 +14,7 @@ const MapWithAMarkerClusterer = compose(
     withProps({
         googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC3RDeRum5X-MLlcKX8_Z5c2RWtPNdxUY4&v=3.exp&libraries=geometry,drawing,places",
         loadingElement: <div style={{ height: `100%` }} />,
-        containerElement: <div style={{ height: `calc(100vh - 65px)` }} />,
+        containerElement: <div style={{ height: `400px` }} />,
         mapElement: <div style={{ height: `100%` }} />,
     }),
     withHandlers({
@@ -28,7 +28,7 @@ const MapWithAMarkerClusterer = compose(
     withGoogleMap
 )(props =>
     <GoogleMap
-        defaultZoom={4}
+        defaultZoom={3}
         defaultCenter={{ lat: 39.254749, lng: -90.710838 }}
     >
         <MarkerClusterer
@@ -47,48 +47,22 @@ const MapWithAMarkerClusterer = compose(
     </GoogleMap>
 );
 
-class Map2 extends React.Component {
+class Map2 extends React.PureComponent {
     constructor(props) {
         super(props);
-        console.log(props.dummy);
-        this.state = {
-            /* markers: props.markers */
-            organFilter: props.organFilter
-        };
+        this.state = { markers: props.points };
+        console.log("in constructor, ", props.points);
     }
 
-    shouldComponentUpdate(nextProps) {
-        return this.props.organFilter !== nextProps.organFilter;
-    }
-
-    /*  componentWillMount() {
-         this.setState({   organFilter: { heart: true, kidney: true, liver: true, pancreas: true, lung: true, vca: true, intestine: true, islet: true } })
-     } */
-
-    componentDidMount(props) {
-        console.log("loading data...")
-        const url = [
-            `data.json`
-        ].join("")
-
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                this.setState({ markers: data });
-            });
-    }
-
-    componentDidUpdate(props) {
-        console.log("did update?", props);
-        this.setState({ /* markers: [] */  organFilter: props.organFilter })
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        console.log('Component received new props', nextProps);
+        this.setState({ markers: nextProps.points });
     }
 
     render() {
-        console.log("am i?", this.state.organFilter);
         return (
             <>
-                {/* <MapWithAMarkerClusterer markers={this.state.markers} /> */}
-                {this.state.organFilter.heart}
+                <MapWithAMarkerClusterer markers={this.state.markers} />
             </>
         )
     }

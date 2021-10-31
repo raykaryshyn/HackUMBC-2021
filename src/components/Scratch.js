@@ -30,15 +30,64 @@ import MyMap from './MyMap'; */
     );
 }*/
 
+const filterData = (data, organFilter) => {
+    let output = [];
+
+    const dataMap = require('./data_map.json');
+
+    if (organFilter.heart) {
+        for (let x in dataMap["Heart"]) {
+            output.push(data[x]);
+        }
+    }
+    if (organFilter.kidney) {
+        for (let x in dataMap["Kidney"]) {
+            output.push(data[x]);
+        }
+    }
+    if (organFilter.liver) {
+        for (let x in dataMap["Liver"]) {
+            output.push(data[x]);
+        }
+    }
+    if (organFilter.pancreas) {
+        for (let x in dataMap["Pancreas"]) {
+            output.push(data[x]);
+        }
+    }
+    if (organFilter.lung) {
+        for (let x in dataMap["Lung"]) {
+            output.push(data[x]);
+        }
+    }
+    if (organFilter.vca) {
+        for (let x in dataMap["Vascularized Composite Allograft (VCA)"]) {
+            output.push(data[x]);
+        }
+    }
+    if (organFilter.intestine) {
+        for (let x in dataMap["Intestine"]) {
+            output.push(data[x]);
+        }
+    }
+    if (organFilter.islet) {
+        for (let x in dataMap["Pancreas Islet"]) {
+            output.push(data[x]);
+        }
+    }
+
+    return output;
+};
+
 const Scratch = (props) => {
     const [organFilter, setOrganFilter] = React.useState({ heart: true, kidney: true, liver: true, pancreas: true, lung: true, vca: true, intestine: true, islet: true });
     let [points, setPoints] = React.useState(null);
 
-    const fetchData = async (organFilter) => {
-        console.log("fetching data...", organFilter);
-        const call = await fetch('data_list_for_filter.json');
-        const data = await call.json();
+    const fetchData = (organFilter) => {
+        const rawData = require('./data_list_for_filter.json');
+        let data = filterData(rawData, organFilter);
         setPoints(data);
+        console.log("fetching data...", organFilter, data);
     }
 
     React.useEffect(() => {

@@ -139,7 +139,7 @@ const MapWithAMarkerClusterer = compose(
                         null, /* size is determined at runtime */
                         null, /* origin is 0,0 */
                         null, /* anchor is bottom center of the scaled image */
-                        new window.google.maps.Size(40, 40)
+                        new window.google.maps.Size(50, 50)
                     )}
                     position={{ lat: marker.Latitude, lng: marker.Longitude }}
                     onClick={() => { props.onMarkerClick(marker) }}

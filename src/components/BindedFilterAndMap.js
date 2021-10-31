@@ -25,7 +25,7 @@ const filterData = (data, organFilter) => {
 
     if (organFilter.heart) {
         for (let x in dataMap["Heart"]) {
-            if (usedIndexes.indexOf(x) == -1) {
+            if (usedIndexes.indexOf(x) === -1) {
                 output.push(data[x]);
                 usedIndexes.push(x);
             }
@@ -33,7 +33,7 @@ const filterData = (data, organFilter) => {
     }
     if (organFilter.kidney) {
         for (let x in dataMap["Kidney"]) {
-            if (usedIndexes.indexOf(x) == -1) {
+            if (usedIndexes.indexOf(x) === -1) {
                 output.push(data[x]);
                 usedIndexes.push(x);
             }
@@ -41,7 +41,7 @@ const filterData = (data, organFilter) => {
     }
     if (organFilter.liver) {
         for (let x in dataMap["Liver"]) {
-            if (usedIndexes.indexOf(x) == -1) {
+            if (usedIndexes.indexOf(x) === -1) {
                 output.push(data[x]);
                 usedIndexes.push(x);
             }
@@ -49,7 +49,7 @@ const filterData = (data, organFilter) => {
     }
     if (organFilter.pancreas) {
         for (let x in dataMap["Pancreas"]) {
-            if (usedIndexes.indexOf(x) == -1) {
+            if (usedIndexes.indexOf(x) === -1) {
                 output.push(data[x]);
                 usedIndexes.push(x);
             }
@@ -57,7 +57,7 @@ const filterData = (data, organFilter) => {
     }
     if (organFilter.lung) {
         for (let x in dataMap["Lung"]) {
-            if (usedIndexes.indexOf(x) == -1) {
+            if (usedIndexes.indexOf(x) === -1) {
                 output.push(data[x]);
                 usedIndexes.push(x);
             }
@@ -65,7 +65,7 @@ const filterData = (data, organFilter) => {
     }
     if (organFilter.vca) {
         for (let x in dataMap["Vascularized Composite Allograft (VCA)"]) {
-            if (usedIndexes.indexOf(x) == -1) {
+            if (usedIndexes.indexOf(x) === -1) {
                 output.push(data[x]);
                 usedIndexes.push(x);
             }
@@ -73,7 +73,7 @@ const filterData = (data, organFilter) => {
     }
     if (organFilter.intestine) {
         for (let x in dataMap["Intestine"]) {
-            if (usedIndexes.indexOf(x) == -1) {
+            if (usedIndexes.indexOf(x) === -1) {
                 output.push(data[x]);
                 usedIndexes.push(x);
             }
@@ -81,7 +81,7 @@ const filterData = (data, organFilter) => {
     }
     if (organFilter.islet) {
         for (let x in dataMap["Pancreas Islet"]) {
-            if (usedIndexes.indexOf(x) == -1) {
+            if (usedIndexes.indexOf(x) === -1) {
                 output.push(data[x]);
                 usedIndexes.push(x);
             }

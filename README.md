@@ -3,7 +3,7 @@
 ![Screenshot Example](/screenshot.png)
 
 ## Inspiration
-According to the American Transplant Foundation, around 107000 people in the US are currently in need of a lifesaving organ transplant. These recipients are selected based on location, medical need, and compatibility.
+According to the American Transplant Foundation, around 107,000 people in the US are currently in need of a lifesaving organ transplant. These recipients are selected based on location, medical need, and compatibility.
 
 ## Goal
 As we aim to assist recipients in their path to treatment, we focused on connecting patients to Organ Transplant Centers.

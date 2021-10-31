@@ -19,47 +19,72 @@ const drawerWidth = 240;
 
 const filterData = (data, organFilter) => {
     let output = [];
+    let usedIndexes = [];
 
     const dataMap = require('./data_map.json');
 
     if (organFilter.heart) {
         for (let x in dataMap["Heart"]) {
-            output.push(data[x]);
+            if (usedIndexes.indexOf(x) == -1) {
+                output.push(data[x]);
+                usedIndexes.push(x);
+            }
         }
     }
     if (organFilter.kidney) {
         for (let x in dataMap["Kidney"]) {
-            output.push(data[x]);
+            if (usedIndexes.indexOf(x) == -1) {
+                output.push(data[x]);
+                usedIndexes.push(x);
+            }
         }
     }
     if (organFilter.liver) {
         for (let x in dataMap["Liver"]) {
-            output.push(data[x]);
+            if (usedIndexes.indexOf(x) == -1) {
+                output.push(data[x]);
+                usedIndexes.push(x);
+            }
         }
     }
     if (organFilter.pancreas) {
         for (let x in dataMap["Pancreas"]) {
-            output.push(data[x]);
+            if (usedIndexes.indexOf(x) == -1) {
+                output.push(data[x]);
+                usedIndexes.push(x);
+            }
         }
     }
     if (organFilter.lung) {
         for (let x in dataMap["Lung"]) {
-            output.push(data[x]);
+            if (usedIndexes.indexOf(x) == -1) {
+                output.push(data[x]);
+                usedIndexes.push(x);
+            }
         }
     }
     if (organFilter.vca) {
         for (let x in dataMap["Vascularized Composite Allograft (VCA)"]) {
-            output.push(data[x]);
+            if (usedIndexes.indexOf(x) == -1) {
+                output.push(data[x]);
+                usedIndexes.push(x);
+            }
         }
     }
     if (organFilter.intestine) {
         for (let x in dataMap["Intestine"]) {
-            output.push(data[x]);
+            if (usedIndexes.indexOf(x) == -1) {
+                output.push(data[x]);
+                usedIndexes.push(x);
+            }
         }
     }
     if (organFilter.islet) {
         for (let x in dataMap["Pancreas Islet"]) {
-            output.push(data[x]);
+            if (usedIndexes.indexOf(x) == -1) {
+                output.push(data[x]);
+                usedIndexes.push(x);
+            }
         }
     }
 

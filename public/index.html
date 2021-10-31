@@ -10,16 +10,19 @@
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <title>Organ Transplant Finder</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
-  <div id="popup-container" style="background-color: rgba(0,0,0,0.5); width: 100vw; position:absolute; top:0; left:0; height: 100vh; z-index: 99999; display: none;">
+  <div id="popup-container"
+    style="background-color: rgba(0,0,0,0.5); width: 100vw; position:absolute; top:0; left:0; height: 100vh; z-index: 99999; backdrop-filter: blur(2px); display: none;">
     <div id="popup"
-      style="position:absolute; top:50%; left:50%; transform: translateX(-50%) translateY(-50%);background-color: rgba(200,200,200);  border-radius: 10px; padding: 10px 15px; box-shadow: 0 0 30px rgba(0,0,0,0.9); color: black; min-width: 500px; z-index: 999999;">
+      style="position:absolute; top:50%; left:50%; transform: translateX(-50%) translateY(-50%);background-color: rgba(225,225,225,1);  border-radius: 10px; padding: 10px 15px; box-shadow: 0 0 30px rgba(0,0,0,0.9); color: black; width: 500px; z-index: 999999;">
       <button onclick="document.getElementById('popup-container').style.display = 'none'"
         style="float: right;background: transparent; outline: none; box-shadow: none; border: none; padding: 0; cursor: pointer;"><span
           class="material-icons">
@@ -30,6 +33,7 @@
       <p>Tel: <span id="popup-phone"></span></p>
       <p>Address: <span id="popup-address"></span></p>
       <p>ZIP: <span id="popup-zip"></span></p>
+      <div id="popup-filters"></div>
     </div>
   </div>
 </body>

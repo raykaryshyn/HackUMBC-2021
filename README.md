@@ -1,5 +1,7 @@
 # Organ Transplant Finder
 
+![Screenshot Example](/screenshot.png)
+
 ## Inspiration
 According to the American Transplant Foundation, around 107000 people in the US are currently in need of a lifesaving organ transplant. These recipients are selected based on location, medical need and compatibility.
 

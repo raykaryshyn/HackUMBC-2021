@@ -132,18 +132,26 @@ const MapWithAMarkerClusterer = compose(
             gridSize={60}
         >
             {props.markers.map((marker, i) => (
-                <Marker
-                    key={i}
-                    icon={new window.google.maps.MarkerImage(
-                        "https://cdn-icons.flaticon.com/png/512/4287/premium/4287648.png?token=exp=1635683340~hmac=6fa9e9cbe1d04c3f6d1a8dd2d9a22e4d",
-                        null, /* size is determined at runtime */
-                        null, /* origin is 0,0 */
-                        null, /* anchor is bottom center of the scaled image */
-                        new window.google.maps.Size(50, 50)
-                    )}
-                    position={{ lat: marker.Latitude, lng: marker.Longitude }}
-                    onClick={() => { props.onMarkerClick(marker) }}
-                />
+                (window.google !== null) ?
+                    <Marker
+                        key={i}
+                        icon={new window.google.maps.MarkerImage(
+                            "https://i.postimg.cc/zXR6GWbb/4287648.png",
+                            null, /* size is determined at runtime */
+                            null, /* origin is 0,0 */
+                            null, /* anchor is bottom center of the scaled image */
+                            new window.google.maps.Size(50, 50)
+                        )
+                        }
+                        position={{ lat: marker.Latitude, lng: marker.Longitude }}
+                        onClick={() => { props.onMarkerClick(marker) }}
+                    />
+                    :
+                    <Marker
+                        key={i}
+                        position={{ lat: marker.Latitude, lng: marker.Longitude }}
+                        onClick={() => { props.onMarkerClick(marker) }}
+                    />
             ))}
         </MarkerClusterer>
     </GoogleMap>

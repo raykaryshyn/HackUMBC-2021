@@ -1,6 +1,5 @@
 import React from 'react';
 
-const fetch = require("isomorphic-fetch");
 const { compose, withProps, withHandlers } = require("recompose");
 const {
     withScriptjs,
@@ -14,7 +13,7 @@ const MapWithAMarkerClusterer = compose(
     withProps({
         googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC3RDeRum5X-MLlcKX8_Z5c2RWtPNdxUY4&v=3.exp&libraries=geometry,drawing,places",
         loadingElement: <div style={{ height: `100%` }} />,
-        containerElement: <div style={{ height: `400px` }} />,
+        containerElement: <div style={{ height: `calc(100vh - 65px)` }} />,
         mapElement: <div style={{ height: `100%` }} />,
     }),
     withHandlers({

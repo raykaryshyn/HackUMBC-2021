@@ -103,6 +103,15 @@ const MapWithAMarkerClusterer = compose(
             console.log(`Current clicked markers length: ${clickedMarkers.length}`)
             console.log(clickedMarkers)
         },
+        onMarkerClick: () => (marker) => {
+            console.log(marker);
+            document.getElementById("popup-name").innerHTML = marker['OTC Name'];
+            document.getElementById("popup-phone").innerHTML = marker['OTC Telephone #'];
+            document.getElementById("popup-address").innerHTML = [marker['Address.1'], marker['City.1']].join(', ');
+            document.getElementById("popup-zip").innerHTML = marker['ZIP.1'];
+            document.getElementById("popup-website").innerHTML = "<a href='" + marker['Organ Transplantation Center'] + "' target='_blank'>" + marker['Organ Transplantation Center'] + "</a>";
+            document.getElementById("popup-container").style.display = "block";
+        },
     }),
     withScriptjs,
     withGoogleMap
@@ -124,6 +133,7 @@ const MapWithAMarkerClusterer = compose(
                 <Marker
                     key={i}
                     position={{ lat: marker.Latitude, lng: marker.Longitude }}
+                    onClick={() => { props.onMarkerClick(marker) }}
                 />
             ))}
         </MarkerClusterer>

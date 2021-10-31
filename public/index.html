@@ -17,6 +17,21 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  <div id="popup-container" style="background-color: rgba(0,0,0,0.5); width: 100vw; position:absolute; top:0; left:0; height: 100vh; z-index: 99999; display: none;">
+    <div id="popup"
+      style="position:absolute; top:50%; left:50%; transform: translateX(-50%) translateY(-50%);background-color: rgba(200,200,200);  border-radius: 10px; padding: 10px 15px; box-shadow: 0 0 30px rgba(0,0,0,0.9); color: black; min-width: 500px; z-index: 999999;">
+      <button onclick="document.getElementById('popup-container').style.display = 'none'"
+        style="float: right;background: transparent; outline: none; box-shadow: none; border: none; padding: 0; cursor: pointer;"><span
+          class="material-icons">
+          close
+        </span></button>
+      <h1 id="popup-name" style="font-size: 1.5rem;"></h1>
+      <span id="popup-website"></span>
+      <p>Tel: <span id="popup-phone"></span></p>
+      <p>Address: <span id="popup-address"></span></p>
+      <p>ZIP: <span id="popup-zip"></span></p>
+    </div>
+  </div>
 </body>
 
 </html>

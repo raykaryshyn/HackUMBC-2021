@@ -3,6 +3,16 @@
   height: calc(100vh - 65px);
 }
 
+#popup * {
+  white-space: pre;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
+}
+
 .filter-badge {
   background: rgb(100, 100, 100);
   color: white;

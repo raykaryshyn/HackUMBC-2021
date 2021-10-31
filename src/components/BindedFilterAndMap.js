@@ -11,35 +11,87 @@ import Typography from '@mui/material/Typography';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Map2 from './Map2';
+import Map2 from './MyGoogleMap';
 
 
 const drawerWidth = 240;
 
-function MyMenu(props) {
-    const { window } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+const filterData = (data, organFilter) => {
+    let output = [];
+
+    const dataMap = require('./data_map.json');
+
+    if (organFilter.heart) {
+        for (let x in dataMap["Heart"]) {
+            output.push(data[x]);
+        }
+    }
+    if (organFilter.kidney) {
+        for (let x in dataMap["Kidney"]) {
+            output.push(data[x]);
+        }
+    }
+    if (organFilter.liver) {
+        for (let x in dataMap["Liver"]) {
+            output.push(data[x]);
+        }
+    }
+    if (organFilter.pancreas) {
+        for (let x in dataMap["Pancreas"]) {
+            output.push(data[x]);
+        }
+    }
+    if (organFilter.lung) {
+        for (let x in dataMap["Lung"]) {
+            output.push(data[x]);
+        }
+    }
+    if (organFilter.vca) {
+        for (let x in dataMap["Vascularized Composite Allograft (VCA)"]) {
+            output.push(data[x]);
+        }
+    }
+    if (organFilter.intestine) {
+        for (let x in dataMap["Intestine"]) {
+            output.push(data[x]);
+        }
+    }
+    if (organFilter.islet) {
+        for (let x in dataMap["Pancreas Islet"]) {
+            output.push(data[x]);
+        }
+    }
+
+    return output;
+};
+
+function BindedFilterAndMap(props) {
     const [organFilter, setOrganFilter] = React.useState({ heart: true, kidney: true, liver: true, pancreas: true, lung: true, vca: true, intestine: true, islet: true });
-    /* const [markers, setMarkers] = React.useState([]); */
-    const [dummy, setDummy] = React.useState(0);
+    let [points, setPoints] = React.useState(null);
 
-    /* React.useEffect(function effectFunction() {
-        fetch("data_list_for_filter.json")
-            .then(res => res.json())
-            .then(data => {
-                setMarkers(data);
-            });
-    }, []); */
+    const fetchData = (organFilter) => {
+        const rawData = require('./data_list_for_filter.json');
+        let data = filterData(rawData, organFilter);
+        setPoints(data);
+        console.log("fetching data...", organFilter, data);
+    }
 
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
+    React.useEffect(() => {
+        fetchData(organFilter);
+    }, [organFilter]);
 
     const handleOrganFilter = (organ) => {
         setOrganFilter(prevState => ({
             ...prevState,
             [organ]: !prevState[organ]
         }));
+    };
+
+    const { window } = props;
+    const [mobileOpen, setMobileOpen] = React.useState(false);
+
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen);
     };
 
     const drawer = (
@@ -60,11 +112,6 @@ function MyMenu(props) {
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
-
-    React.useEffect(() => {
-        console.log(dummy);
-        setDummy(prevState => prevState + 1);
-    }, [organFilter]);
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -128,31 +175,10 @@ function MyMenu(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                {/* {markers.length > 0 && markers[0].Longitude} */}
-                {/* <Map2 organFilter={organFilter} /> */}
-                {dummy}
+                {points != null && <Map2 points={points} />}
             </Box>
         </Box>
     );
 }
 
-
-
-function filterData(data, filter) {
-    return data;
-}
-
-
-function getData(organFilter) {
-    let filteredData = []
-
-    fetch("data_list_for_filter.json")
-        .then(res => res.json())
-        .then(data => {
-            filteredData = filterData(data, organFilter);
-        });
-
-    return filteredData;
-}
-
-export default MyMenu;
+export default BindedFilterAndMap;

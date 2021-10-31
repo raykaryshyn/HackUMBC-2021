@@ -47,7 +47,7 @@ const MapWithAMarkerClusterer = compose(
     </GoogleMap>
 );
 
-class Map2 extends React.PureComponent {
+class MyGoogleMap extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = { markers: props.points };
@@ -68,4 +68,4 @@ class Map2 extends React.PureComponent {
     }
 }
 
-export default Map2;
+export default MyGoogleMap;

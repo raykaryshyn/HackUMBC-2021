@@ -2,34 +2,7 @@ import * as React from 'react';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-/* import withFetch from './withFetch';
- */
-import Map2 from './Map2';
-
-/* const MyMapWithFetch = withFetch(
-    MyMap,
-    "data.json"
-); */
-
-/* function Scratch() {
-    const [organFilter, setOrganFilter] = React.useState({ heart: true, kidney: true, liver: true, pancreas: true, lung: true, vca: true, intestine: true, islet: true });
-    const [points, setPoints] = useState(null);
-
-    const handleOrganFilter = (organ) => {
-        setOrganFilter(prevState => ({
-            ...prevState,
-            [organ]: !prevState[organ]
-        }));
-    };
-
-    return (
-        <>
-            
-
-            <MyMapWithFetch />
-        </>
-    );
-}*/
+import Map2 from './MyGoogleMap';
 
 const filterData = (data, organFilter) => {
     let output = [];

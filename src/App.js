@@ -1,12 +1,10 @@
 import './App.css';
-/* import MyAppBar from './components/MyAppBar'; */
-import Scratch from './components/Scratch';
+import BindedFilterAndMap from './components/BindedFilterAndMap';
 
 function App() {
   return (
     <div className="App">
-      {/* <MyAppBar /> */}
-      <Scratch />
+      <BindedFilterAndMap />
     </div>
   );
 }
